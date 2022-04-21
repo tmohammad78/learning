@@ -1,0 +1,22 @@
+{
+  "name": "babel-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 10"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/generator": "^7.17.9"
+  }
+}
