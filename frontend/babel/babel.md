@@ -8,7 +8,7 @@ for example some feature like symbol or map and set collection and etc traspiled
 ### Structure
 Babel use AST (Abstract syntax tree) look inside this : 
 Source Code --> Original AST --> Transformed AST -->  Output Source Code 
-[inside]()
+![babel core](https://github.com/tmohammad78/learning/blob/main/frontend/babel/core.png)
 
 ### @babel/parser
 #### Lexical Analysis
@@ -30,5 +30,5 @@ It's generate new source code from the AST
 AST: https://medium.com/basecs/leveling-up-ones-parsing-game-with-asts-d7a6fc2400ff
 https://blog.bitsrc.io/what-is-an-abstract-syntax-tree-7502b71bde27
 https://lihautan.com/step-by-step-guide-for-writing-a-babel-transformation/
-
+https://www.youtube.com/watch?v=UeVq_U5obnE&t=3052s&ab_channel=HolyJS
 

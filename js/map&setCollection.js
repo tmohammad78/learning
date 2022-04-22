@@ -5,6 +5,14 @@ function expect(actual) {
       if (actual !== expected) {
         throw new Error(`${actual} is not equal to ${expected}`)
       }
+    },
+    toEqual(expect){
+      for(let i = 0 ;i < expect.length ; i++){
+        if(expect[i] !== actual[i]){
+          throw new Error(`${actual} is not equal to ${expected}`)
+        }
+        return true
+      }
     }
   }
 }
@@ -36,3 +44,14 @@ expect(newMap2.get(2)).toBe("second")
 newMap2.delete(2)
 /// True
 expect(newMap2.get(2)).toBe(undefined)
+
+// newMap.clear()   /// This is clear the map object , its good when we want to 
+                  // clear our memory 
+
+const sampleArray = [1,2,3,4,5,6,6,7,8,8,8,12,3,3,4]                  
+const newSet  = new Set(sampleArray);
+/// True
+expect(Array.from(newSet)).toEqual([1,2,3,4,5,6,7,8,12])
+
+
+// WeakMap 
