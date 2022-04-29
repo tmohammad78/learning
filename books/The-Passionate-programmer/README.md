@@ -61,4 +61,35 @@ I haven’t been given opportunity...? Seize the opportunity!
 Learn a new programming language. But, don’t go from Java to C# or from C to C++. Learn a new language that makes you think in a new way. If you’re a Java or C# programmer, try learning a language like Smalltalk or Ruby that doesn’t employ strong, static typing. Or, if you’ve been doing object-oriented programming for a long time, try a functional language like Haskell or Scheme. You don’t have to become an expert. Work through enough code that you truly feel the difference in the new programming environment. If it doesn’t feel strange enough, either you’ve picked the wrong language or you’re applying your old way of thinking to the new language. Go out of your way to learn the idioms of the new language. Ask old-timers to review your code and make
 suggestions that would make it more idiomatically correct.
 
+### Don’t Listen to Your Parents
+Books, movies,and television plots are hinged on the parents’ wisdom as a moral. But for careers in our industry, this moral is wrong. your parents are going to give you fear-driven advice. Fear-driven advice is geared toward not losing. Thinking about not losing is not the way to win!
+Fear-driven career planning is more likely to land you in a cubicle farm for the rest of your life than on the path to greatness. Sure, it’s safe, but it’s no fun.
+
+Another career decision-making factor that is likely not in line with your parents’ view of the working world is that it’s OK (and often preferable) to change jobs .
+
+I’d personally rather hire someone who has seen a variety of successes and failures in different environments than someone who has known only one way of doing things.
+
+### Be a Generalist
+
+The way to become a generalist is to not label yourself with a specific role or tech- nology. We can become typecast in our careers in many ways. To visualize what it means to be a generalist, it can help to dissect the IT career landscape into its various independent aspects.
+Generalists are rare ...and , therefore, precious.
+Your skills should transcend technology platforms.
+Master one, and get good at the other.
+Start learning how your business operates.
+
+On a piece of paper or a whiteboard, list the dimensions on which you may or may not be generalizing your knowledge and abilities.For each dimension, write your specialty. For example, if Platform and Operating System is one of your dimensions, you might write Windows/.NET next to it. Now, to the right of your specialty, write one or more topics you should put into your “To Learn” list. Continuing with the same example, you might write Linux and Java (or even Ruby or Perl).
+As soon as possible (some time this week at the latest!), find thirty minutes of time to start addressing at least one of the “To Learn” items on your list. Don’t just read about it. If possible, get some hands-on experience. If it’s web technology, then download a web server package and set it up yourself. If it’s a business topic, find one of your customers at work and ask them to go out for lunch for a chat.
+
+### Be a Specialist
+
+Too many of us seem to believe that specializing in something simply means you don’t know about other things. I could, for example, call my mother a Windows specialist, because she has never used Linux or OS X.
+Unfortunately, the software industry has churned out a whole lot of these shallow specialists, who use the term specialist as an excuse for knowing only one thing.
+
+Find an opportunity—at work or outside—to teach a class on some aspect of a technology that you would like to develop some depth in. As you’ll see in Be a Mentor, teaching is one of the best ways to learn.
+
+### Love It or Leave It
+You have to be passionate about your work if you want to be great at your work. If you don’t care, it will show.
 ## Part 2 : Investing in your product
+This is one piece of proof that if you want to have a great product to sell on the job market—a product that stands out and that lets you really compete—you’re going to have to invest in that product.
+
+In this part, we’ll look at investment strategies for your career. We will explore how to choose which skills and technologies to invest in as well as look at different ways of investing in ourselves. This part is where the real work starts.
