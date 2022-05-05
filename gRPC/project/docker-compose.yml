@@ -1,0 +1,25 @@
+version: '2.2'
+services:
+  front:
+    container_name: front_app_grpc
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules/
+  backend:
+    container_name: backend_app_grpc
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/app
+volumes:
+  front:
+  backend:

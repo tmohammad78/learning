@@ -62,3 +62,19 @@ Learn a new programming language. But, don’t go from Java to C# or from C to C
 suggestions that would make it more idiomatically correct.
 
 ## Part 2 : Investing in your product
+This is one piece of proof that if you want to have a great product to sell on the job market a product that stands out and that lets you really compete you’re going to have to invest in that product.
+In this part, we’ll look at investment strategies for your career. We will explore how to choose which skills and technologies to invest in as well as look at different ways of investing in ourselves. This part is where the real work starts.
+
+### Learn to Fish
+Lao Tzu said, “Give a man a fish; feed him for a day. Teach a man to fish; feed him for a lifetime.” That’s all well and good. But Lao Tzu left out the part where the man doesn’t want to learn how to fish and he asks you for another fish tomorrow. Education requires both a teacher and a student. Many of us are too often reluctant to be a student.
+
+Who wants to be at the mercy of someone else? Or, worse: if you were looking to hire someone to do a job for you, would you want that person to be at the mercy of the experts? I wouldn’t. I’d want to hire someone who is self-sufficient.
+
+If your code has a critical bug in the middle of the night, you don’t want to have to call someone else to ask them to get you the right version so you can start troubleshooting.
+Ask for a fish; eat for a day. Ask someone to teach you to fish; eat for a lifetime.” Better yet, don’t ask to be taught go learn for yourself.
+
+**How and why?** -Either as you sit here reading or the next time you’re at work, think about the facets of your job that you may not fully understand. You can ask yourself two extremely useful questions about any given area to drill down into the murky layers: How
+does it work? and Why does this (have to) happen? You may not even be able to answer the questions, but the very act of asking them will put you into a new frame of mind and
+will generate a higher level of awareness about your work environment.
+**Tip time**—Pick one of the most critical but neglected tools in your toolbox to focus on. Perhaps it’s your version control system, perhaps a library that you use extensively but you’ve looked into only superficially, or maybe the editor you use when programming.
+When you’ve picked the tool, allot yourself a small period of time each day to learn one new thing about the tool that will make you more productive or put you in better control over your development environment.
