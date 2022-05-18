@@ -62,19 +62,64 @@ Learn a new programming language. But, don’t go from Java to C# or from C to C
 suggestions that would make it more idiomatically correct.
 
 ## Part 2 : Investing in your product
-This is one piece of proof that if you want to have a great product to sell on the job market a product that stands out and that lets you really compete you’re going to have to invest in that product.
+This is one piece of proof that if you want to have a great product to sell on the job market a product that stands out and that lets you really compete you’re going to have to invest in that product.<br />
 In this part, we’ll look at investment strategies for your career. We will explore how to choose which skills and technologies to invest in as well as look at different ways of investing in ourselves. This part is where the real work starts.
 
 ### Learn to Fish
-Lao Tzu said, “Give a man a fish; feed him for a day. Teach a man to fish; feed him for a lifetime.” That’s all well and good. But Lao Tzu left out the part where the man doesn’t want to learn how to fish and he asks you for another fish tomorrow. Education requires both a teacher and a student. Many of us are too often reluctant to be a student.
+Lao Tzu said, “Give a man a fish; feed him for a day. Teach a man to fish; feed him for a lifetime.” That’s all well and good. But Lao Tzu left out the part where the man doesn’t want to learn how to fish and he asks you for another fish tomorrow. Education requires both a teacher and a student. Many of us are too often reluctant to be a student.<br />
 
-Who wants to be at the mercy of someone else? Or, worse: if you were looking to hire someone to do a job for you, would you want that person to be at the mercy of the experts? I wouldn’t. I’d want to hire someone who is self-sufficient.
+Who wants to be at the mercy of someone else? Or, worse: if you were looking to hire someone to do a job for you, would you want that person to be at the mercy of the experts? I wouldn’t. I’d want to hire someone who is self-sufficient.<br />
 
 If your code has a critical bug in the middle of the night, you don’t want to have to call someone else to ask them to get you the right version so you can start troubleshooting.
 Ask for a fish; eat for a day. Ask someone to teach you to fish; eat for a lifetime.” Better yet, don’t ask to be taught go learn for yourself.
 
 **How and why?** -Either as you sit here reading or the next time you’re at work, think about the facets of your job that you may not fully understand. You can ask yourself two extremely useful questions about any given area to drill down into the murky layers: How
 does it work? and Why does this (have to) happen? You may not even be able to answer the questions, but the very act of asking them will put you into a new frame of mind and
-will generate a higher level of awareness about your work environment.
+will generate a higher level of awareness about your work environment. <br />
 **Tip time**—Pick one of the most critical but neglected tools in your toolbox to focus on. Perhaps it’s your version control system, perhaps a library that you use extensively but you’ve looked into only superficially, or maybe the editor you use when programming.
 When you’ve picked the tool, allot yourself a small period of time each day to learn one new thing about the tool that will make you more productive or put you in better control over your development environment.
+
+#### Learn How Businesses Really Work
+Before making an investment in learning the ins and outs of a business domain, you should make sure you’re investing in the right one for you and for the state of the market.
+
+Looking back on it, I realize how foolish we were. We worked for a business, and our job was to contribute to either making or saving money for that business. <br />
+You can’t creatively help a business until you know how it works. <br />
+how were we supposed to creatively help the business be profitable if we didn’t even understand how the business worked?
+
+Given the right projects and leadership,we should be putting effort into tasks that help the business. We don’t need to fully understand how a business runs to provide value to it. But, to creatively add value takes a more thorough understanding of the business environment in which you work. I
+
+#### Find a Mentor  
+It’s OK to depend on someone. Just make sure it's right person. A mentor can also give structure to your learning process . <br />
+When I prodded him to give me direction on how to become more knowledgeable and self-sufficient, he gave me a simple recipe: dive into directory services, get comfortable with a UNIX variant, and master a scripting language.
+
+#### Be a Mentor
+There’s no better way to crystallize your understanding of something than to force yourself to express it to someone else so that they can understand it. <br />
+To find out whether you really know something, try teaching it to someone else. <br />
+Look for someone to take under your wing. You might find someone younger and less experienced at your company, perhaps an intern. Or, you could talk to the computer science or information
+systems department at your local university and volunteer to mentor a college student
+
+#### Practice, Practice, Practice
+When you practice music, it shouldn’t sound good. If you always sound good during practice sessions, it means you’re not stretching your limits. As an industry, we need to make time for practice.We have to invest the time in our craft.<br />
+**Practice at your limits.** <br />
+So, how do you know what to practice? What stretches your limits? The subject of how to practice as a software developer could easily fill a book of its own. <br />
+What about the dusty corners of your primary programming language that you rarely visit? For example, does your programming language of choice support regular expressions?Most developers don’t use them when they could, because they don’t have the level of skill that it would take to be productive with them. As a result, a lot of needless string parsing code gets created and then has to be maintained. <br />
+when they could really help you. Try truly digging into, for example, the way multi threaded programming works in your chosen programming environment.<br />
+An excellent place to find new code with which to practice is the open source community.
+Do you have any favorite pieces of open source software? How about trying to add a feature? Go look at the to-do list for a piece of software you’d like to practice with, and give yourself a constrained amount of time to implement the new feature .
+**Try different types of software in different styles and languages.**
+
+Improvisation: Improvisation is taking some structure or constraint and creating something new, on the fly, on top of that structure. As a programmer, I’ve found myself doing the most improvisation in times of stress. Oh no! The wireless network app server is down, and we’re losing orders! That’s when some of the most creative, impromptu programming happens. That’s when you do crazy stuff like recovering lost data by manually replaying packets over a wireless network from a binary log file.
+
+A great way to sharpen the mind and improve your improvisational coding skills is to practice with self-imposed constraints. Pick a simple program, and try to write it with these constraints.<br/>
+The important thing is to find your practice needs and to make sure you’re not practicing during your performances (on the job). You have to make time for practice. It’s your responsibility.
+
+#### The Way That You Do It
+“Developing software” is not a thing, a noun. Instead, “developing software” is a verb phrase; it’s the process of creating a thing .  <br/>
+If you want to feel you own a process, help implement it.
+
+#### On the Shoulders of Giants
+A positive side effect of reading code is that you will learn more about what already exists. When you have a new problem that needs solving, you might remember that “Oh, I saw a library that implements MIME type handling in such and such project.”
+
+Pick a project, and read it like a book. Make notes. Outline the good and the bad. Write a critique, and publish it. Find at least one trick or pattern that you can use from it. Find at least one bad thing that you observed that you will add to your “What not to do” checklist when you’re developing software.
+
+#### Automate Yourself into a Job
