@@ -123,3 +123,26 @@ A positive side effect of reading code is that you will learn more about what al
 Pick a project, and read it like a book. Make notes. Outline the good and the bad. Write a critique, and publish it. Find at least one trick or pattern that you can use from it. Find at least one bad thing that you observed that you will add to your “What not to do” checklist when you’re developing software.
 
 #### Automate Yourself into a Job
+Since we don’t yet know how to truly measure software development productivity, it’s hard to prove that one person is faster than another.So, finance managers focus on per-hour costs.<br />
+imagine your company is in the business of creating websites for small businesses. You basically need to create the same site over and over again, with contacts, surveys, shopping carts, the works. You could either hire a small number of really fast programmers to build
+the sites for you, hire an army of low-cost programmers to do the whole thing manually and repetitively, or create a system for generating the sites.<br />
+Pick a task you normally do repetitively, and write a code generaor for it. Start simple. Don’t worry about reusability. Just make sure your generator saves you time. Think of a way to raise the level of abstraction of what you are generating.
+
+
+## Part 3: Executing 
+### Mind Reader
+start making some notes about what you think your users and managers are going to ask for. Be creative. Try to see the system from their points of view. After you have a list of the not-so-obvious features that might come up, think about how you could most effectively implement each feature. Think about edge cases that your users might not immediately have in mind. 
+
+### Daily Hit
+Common sense tells us that if we exceed our managers’ expectations, we’ll be on the A list. Given that exceeding expectations is a worthy goal, surprisingly few of us have mechanisms of tracking how and when we exceed the expectations of our employers.<br />
+Without warning his manager, he started tracking daily hits.some idea he had thought of or implemented that would make his department better.
+Simply setting a goal (daily, weekly, or whatever you’re capable of) and tracking this type of accomplishment can radically change your behavior.<br />
+**Act On It** <br/>
+Block off half an hour on your calendar, and sit down with a pencil and paper in a quiet place where you won’t be interrupted. Think about the little nitpicky problems your team puts up with on a daily basis. Write them down. What are the annoying tasks that waste a few minutes of the team’s time each day but nobody has had the time or energy to do anything about? <br/>
+Give yourself a solid twenty minutes of this. Write down all of your ideas—good or bad. Don’t allow yourself to quit until the twenty minutes are up.write out your five favorite (most annoying) items. Next week, on Monday, take the first item from the list, and do something about it. On Tuesday, take the second item, Wednesday the third, and so on.
+
+### Remember Who You Work For 
+Make sure your goals and your work align with the goals of your business.
+it’s all fine and dandy to say we need to align our work with the goals of the company—to try to make sure we’re impacting the bottom line and all that.
+The most obvious puddle to start with is your own team. It’s probably small and focused enough that you can conceptually wrap yourself around it.<br />
+Ultimately, in a well-structured environment, the goals of your manager are the goals of your team.
