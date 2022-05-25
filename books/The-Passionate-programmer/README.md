@@ -145,4 +145,13 @@ Give yourself a solid twenty minutes of this. Write down all of your ideas—goo
 Make sure your goals and your work align with the goals of your business.
 it’s all fine and dandy to say we need to align our work with the goals of the company—to try to make sure we’re impacting the bottom line and all that.
 The most obvious puddle to start with is your own team. It’s probably small and focused enough that you can conceptually wrap yourself around it.<br />
-Ultimately, in a well-structured environment, the goals of your manager are the goals of your team.
+Ultimately, in a well-structured environment, the goals of your manager are the goals of your team.<br />
+Solve your manager’s problem, and you’ve solved a problem for the team. Additionally, if your manager is taking the same approach you are, the problems you’re solving for him or her are really his or her boss’s problems. And so on, and so on, until it rolls up to the highest level of your company or organization—the
+CEO, the shareholders, or even your customers.<br />
+By doing your small part, you’re contributing to the fulfillment of the goals of your company. This can give you a sense of purpose. It gives your work meaning.Some may resist this strategy. “I’m not going to do his work for him.” Or, “She’s just going to take credit for my work!”<br />
+The role of a good manager is to set priorities for the team, make sure the team has what it needs to get the job done.<br />
+Your managers’ successes are your successes.If the manager’s job is to know and set priorities but not to personally do all the work,then your job is to do all the work. You are not doing the manager’s job for him or her.You’re doing your job.<br />
+If you’re really worried about who gets the credit, remember that it’s your manager who holds the keys to your career . You’ll not only align yourself with the needs of the business, but you’ll align the business with your needs.<br />
+#### Act On It
+Schedule a meeting with your manager. The agenda is for you to understand your manager’s goals for the team over the coming month, quarter, and year. Ask how you can make a difference.After the meeting, examine how your daily work aligns to the goals of your team. Let them be a filter for everything you do. Prioritize
+your work based on these goals.
