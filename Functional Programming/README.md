@@ -28,3 +28,7 @@ for some reason we can not change that function so for solution we can wrapper a
 ## Shaping 
 Binary and unary are two shape of function that has difference , For make these different shape to same shape we use HOF , this powerful function make them togheter and they can fit toghether. see example4 part2
 We can find a adapter and use high order function to make it easy 
+
+## Point Free
+This meaning start with meaning of Equational Reasoning , it's mean that when wa have a equation , if we simple it , it should be true after changes , see [this](https://www.youtube.com/watch?v=BV-TGIMUXaw&t=277s) .  For sample see example5.js <br />
+the same meaning is in https://ramdajs.com/docs/#complement

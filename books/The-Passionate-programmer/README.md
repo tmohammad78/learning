@@ -155,3 +155,22 @@ If you’re really worried about who gets the credit, remember that it’s your 
 #### Act On It
 Schedule a meeting with your manager. The agenda is for you to understand your manager’s goals for the team over the coming month, quarter, and year. Ask how you can make a difference.After the meeting, examine how your daily work aligns to the goals of your team. Let them be a filter for everything you do. Prioritize
 your work based on these goals.
+
+### Be Where You’re At
+I can tell you that the most frustrating thing to deal with is an employee who’s always aiming for the next rung on the ladder.You know the guy: you can’t sit with him for lunch without him bringing up who got what promotion.<br />
+The sad thing about this guy is that,because he’s living in the next job, he’s usually doing a mediocre job in his current role. <br />
+when I have to mow the lawn, what do I do? I rush. I do a sloppy job. I spend the whole time thinking about how to get it finished so I can get on to the stuff I’d rather be doing. In a nutshell, I do a terrible job at mowing the lawn.<br />
+how do you think his management is going to view him? Will they see that they’ve been wrong to overlook his brilliance and decide to promote him? Will they give him big raises to try to make him happy? <br/>
+Of course not. He’s a mediocre performer with a bad attitude.Furthermore, his attitude makes his managers want to stop investing in him.<br />
+**Here’s a secret:** that feeling will never end. If and when you finally land the big promotion you’ve been dreaming about, you’ll quickly grow tired and realize that it’s not this job you were meant for—it’s the
+next one. The cycle begins again.<br/>
+keeping your mind focused on the present will get you further toward your goals than keeping your mind focused on the goal itself. <br />
+**Focusing** on the present allows you to enjoy the small victories of daily work life: the feeling of a job well done, the feeling of being pulled in as an expert on a critical business problem, the feeling of being an integral member of a team that gels.
+**Act On It**<br />
+Put your career goals away for a week. Write down your goals for your current job. Instead of thinking about where you want to go next, think about what you want to have accomplished when you finish the job you’re in. What can you have produced in this job that will be great? Create a plan that is both strategic and tactical. Spend the week implementing these tactics in support of the long-term goal of “finishing” this job.
+
+### How Good a Job Can I Do Today?
+How can you make the boring work more fun? Why is the boring work boring? Why isn’t it already fun? What’s the difference between the work you enjoy and the work you abhor? <br />
+For most of us techies, the boring work is boring for two primary reasons. The work we love lets us flex our creative muscles. Software development is a creative act, and many of us are drawn to it for this reason. The work we don’t like is seldom work that we consider to be creative in nature. <br />
+The second reason that the boring tasks are boring, admittedly closely joined to the first, is that the boring tasks are not challenging. We love to dig in and solve a hard problem where others have failed.
+We love to do things to prove that we’re able.The boring tasks are usually no brainers. Doing them is about as challenging as taking out the trash.
