@@ -11,8 +11,13 @@ The function is a relationship between input and output , it's important to choo
 Side effects are both side causes , side indirect inputs and indirect outputs . forexample in the example 2 we see side Effect
 We should avoid side effects because invalidate the idea of functions <br />
 Avoid them where possible , make them obvious otherwise.
-The real story is that we can not have side effect completely because we need it , I/O , Network connetion and read / writing on database , generaring random number , DOM are side effect
-
+The real story is that we can not have side effect completely because we need it , I/O , Network connetion and read / writing on database , generaring random number , DOM are side effect . 
+#### From the Mostly adequate
+Any interaction with the world outside of a function is a side effect, which is a fact that may prompt you to suspect the practicality of programming without them. <br />
+It is not that we're forbidden to use them, rather we want to contain them and run them in a controlled way.
+**The Case for Purity**
+pure functions can always be cached by input. This is typically done using a technique called memoization:
+See the example7.js
 ### Pure functions
 The function that has direct input and output and has no side effect . like part 2 of example2
 The confidence of Purity of function is not binayr , we can not say yes sure this function is pure completely
