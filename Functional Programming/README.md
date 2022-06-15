@@ -37,3 +37,24 @@ We can find a adapter and use high order function to make it easy
 ## Point Free
 This meaning start with meaning of Equational Reasoning , it's mean that when wa have a equation , if we simple it , it should be true after changes , see [this](https://www.youtube.com/watch?v=BV-TGIMUXaw&t=277s) .  For sample see example5.js <br />
 the same meaning is in https://ramdajs.com/docs/#complement
+
+
+## Closure
+
+### Eager vs Lazy
+We have this two feature bu helping of closure , see example7.js for better undrestanding
+### lazy
+**Pro**: The function might do some expensive computations and we are not sure that the function will ever be called, a good solution would be to run it lazily.<br />
+**Con**:The downside of deferring the execution is every time we call the function it will do the expensive computation over and over again.<br />
+
+### Eager
+**Pro**: After we did it once we don’t have to do it ever again.
+**Con**: if this was also an expensive computation the downside would be a situation where the function never gets called, therefore we wasted time doing expensive computation that we won’t ever use.
+
+### Memoization
+When we know a function called multiple times with the same input , we wrapp this function with the memoization function . we should becareful to not momoize every function , it has a memory cost.
+
+### Referential Transparency
+When our function is pure , we can guaranty that if we replace the return our function with the place that function called , we have same result . Referential Transparency it matters a lot in the compiler like haskell,but in the JS , It can help us to have confident about that function and don't waste our time with that part code (easy read)
+
+**note**: Function parameter Order: General -> specific  (design a function )
