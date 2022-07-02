@@ -46,3 +46,12 @@ using a RESTful API.
 ## Docker Hub
 The Docker Hub (see figure 2.10) is a registry maintained by Docker Inc. It has tens
 of thousands of images on it ready to download and run
+
+## volume
+Container is stateless it means it has not scence about files that exist and after we shut it down and start again , all files gone . so for solve this problem we create a volume for our files . Another reason is we don't want to store data and big files in the container and maybe it's distributed and it's share storage with other container in different data center . so we use volume . we can create a volume seperatly and after that bind that volume to the container.
+
+<img src="https://github.com/tmohammad78/learning/blob/main/docker/images/volumes.png" />
+
+```
+docker run -v /var/db/tables:/var/data1 -it debian bash
+```
