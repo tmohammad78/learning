@@ -59,3 +59,32 @@ docker run -v /var/db/tables:/var/data1 -it debian bash
 ## Docker swarm 
 Swarm mode for Docker is the official solution from Docker Inc. to treat a cluster
 of hosts as a single Docker daemon and deploy services to them . A Docker swarm consists of a number of nodes. Each node may be a manager or a worker, and these roles are flexible and can be changed in the swarm at any time.
+
+## Containers in Detail
+Container is a single entity but in fact they are implemented through several separate mechanisms built into the Linux kernel that all work together: control groups (cgroups), namespaces, and SELinux or AppArmor. <br />
+Each container that you launch is an individual room with one or more guests.When running Docker, your computer is the hotel. Without Docker, it’s more like a hostel with open bunk rooms .
+ 
+### NameSpace
+Inside each container, you see a filesystem, network interfaces, disks, and other resources that
+all appear to be unique to the container despite sharing the kernel with all the other processes on
+the system.
+container has a namespace for each type of resources.
+Six type of resources : mounts, UTS, IPC, PID, network, and user namespaces.
+1) Mount namespace : We see when we ```exec``` contianer , and then ```ls``` , we'll see a filesystem that it's not actual root of system. <br />
+2) UTS namespaces
+give container different hostname and domain name<br />
+3) PID namespaces
+A process has a unique PID in each namespace to which it belongs.<br />
+4) Network namespaces
+This is what allows your container to have its own network devices, ports, and so on. When you run docker ps and see the bound ports for your container, you are seeing ports from both namespaces <br />
+```Exp:```Namespaces make up the walls of the room, and ensure that processes cannot interact withneighboring processes in any ways that they are not specifically allowed to
+### cgroups 
+Control groups, or cgroups for short, allow you to set limits on resources for processes and their children. This is the mechanism that Docker uses to control limits on memory, swap, CPU, and storage and network I/O resources.
+Docker uses cgroups not just to limit resources but also to report on them. These are many of the metrics you see, for example, in the output of docker stats
+```exp:```Control groups are like the floor and ceiling of the room, trying to ensure that the inhabitants have the resources they need to enjoy their stay, without allowing them to use resources or space reserved forothers.
+### SELinux and AppArmor 
+These provides strong security isolation.<br />
+```exp:```They are a bit like hotel security, ensuring that even if something unexpected or untoward happens, it is unlikely to cause much more than the headache of filling out paperwork and filing an incident report.
+
+### Tips
+[Read tips document](https://github.com/tmohammad78/learning/blob/main/docker/tips.md)

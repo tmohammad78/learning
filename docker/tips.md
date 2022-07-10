@@ -73,3 +73,5 @@ We should reduce our image size , small size is valuable
 5) Flatten the image.
 
 #### Use small image
+
+
