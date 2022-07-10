@@ -55,3 +55,7 @@ Container is stateless it means it has not scence about files that exist and aft
 ```
 docker run -v /var/db/tables:/var/data1 -it debian bash
 ```
+
+## Docker swarm 
+Swarm mode for Docker is the official solution from Docker Inc. to treat a cluster
+of hosts as a single Docker daemon and deploy services to them . A Docker swarm consists of a number of nodes. Each node may be a manager or a worker, and these roles are flexible and can be changed in the swarm at any time.

@@ -1,0 +1,23 @@
+version: '3'
+services:
+  server:
+    command: socat TCP-L:12345,fork,reuseaddr EXEC:'sqlite3 /opt/sqlite/db',pty
+    build: .
+    volumes:
+      - /tmp/sqlitedbs/live:/opt/sqlite/db
+    networks:
+      - sqlnet
+  proxy:
+    command: socat TCP-L:12346,fork,reuseaddr TCP:sqliteserver:12345
+    # Creates a socat proxy to pass data from port 12346 to the server container’s 12345 port
+    build: .
+    links:
+      - server:sqliteserver
+    ports:
+      - 12346:12346
+    networks:
+      - sqlnet
+networks:
+  sqlnet: ## Create a same network and virtual network with bridge , when we connect services in the 
+          ## same network , they know each other and we can not use link
+    driver: bridge 

@@ -61,3 +61,15 @@ COPY app /opt/app
 RUN cd app && ./minify_static.sh
 ```
 The main difference is that in the second one we are caching `npm installing` , and this command doesn't 
+
+
+## Make smaller Image
+We should reduce our image size , small size is valuable
+#### These steps
+1) Run the image.
+2) Enter the container.
+3) Remove unnecessary files.
+4) Commit the container as a new image.
+5) Flatten the image.
+
+#### Use small image
