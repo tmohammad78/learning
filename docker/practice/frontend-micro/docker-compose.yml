@@ -1,0 +1,47 @@
+version: '3'
+services:
+  # proxy:
+  #   build:
+  #     context: ./reverse-proxy
+  #     dockerfile: Dockerfile
+  #   # networks:
+  #   #   client1:
+  #   #     external:
+  #   #       name: client1
+  #   #   client2:
+  #   #     external:
+  #   #       name: client2
+  root:
+    container_name: root
+    build:
+      context: ./root
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - frontend-compose-network
+  client1:
+    container_name: client1
+    build:
+      context: ./client1
+      dockerfile: Dockerfile
+    ports:
+      - "8081:80"
+    depends_on:
+      - root
+    networks:
+      - frontend-compose-network
+  client2:
+    container_name: client2
+    build:
+      context: ./client2
+      dockerfile: Dockerfile
+    ports:
+      - "8082:80"
+    depends_on:
+      - root
+    networks:
+      - frontend-compose-network
+networks: 
+  frontend-compose-network:
+    driver: bridge
