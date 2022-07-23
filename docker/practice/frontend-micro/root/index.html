@@ -5,8 +5,9 @@
 <body>
   <div>
     This is from root client
-    <button name="button" id="client1">go to Client 1</button>
-    <button name="button" id="client2">go to Client 2</button>  </div>
+    <button id="client1">go to Client 1</button>
+    <button id="client2">go to Client 2</button>  
+  </div>
 <script>
   var button1 = document.getElementById('client1');
   var button2 = document.getElementById('client2');
@@ -14,6 +15,7 @@
     window.location.replace("/client1");
   } 
   button2.onclick = function() {
+    console.log("ascasc");
     window.location.replace("/client2");
   }   
 </script>
