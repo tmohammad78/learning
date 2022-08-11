@@ -2,7 +2,7 @@
 
 ### What's Proxy?
 Forward proxy (aka proxy , web proxy , proxy) is a server that sites in front of group of clients . Without this , all clients request to server directly without any middleware , But in the forward-proxy client request to proxy server and proxy server request to the main server . 
-![Proxy server](https://github.com/tmohammad78/learning/blob/main/nginx/reverse-proxy/[proxy].png)
+![Proxy server](https://github.com/tmohammad78/learning/blob/main/nginx/reverse-proxy/proxy.png)
 
 #### Why we use proxy ? 
 - To avoid state or institutional browsing restrictions 
@@ -11,7 +11,7 @@ Forward proxy (aka proxy , web proxy , proxy) is a server that sites in front of
 
 ### What's Reverse Proxy?
 A reverse proxy is a server that sits in front of one or more web servers, intercepting requests from clients. This is different from a forward proxy, where the proxy sits in front of the clients. With a reverse proxy, when clients send requests to the origin server of a website, those requests are intercepted at the network edge by the reverse proxy server
-![Proxy server](https://github.com/tmohammad78/learning/blob/main/nginx/reverse-proxy/[reverse-proxy].png)
+![Proxy server](https://github.com/tmohammad78/learning/blob/main/nginx/reverse-proxy/reverse-proxy.png)
 
 #### Why we use reverse proxy ? 
 - Load Balancing
