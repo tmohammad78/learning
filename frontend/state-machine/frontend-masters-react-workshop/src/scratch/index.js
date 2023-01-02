@@ -4,7 +4,7 @@ import { useMachine } from '@xstate/react';
 
 const initialState = "pending";
 
-const alarmMachine = {
+const alarmMachine = createMachine({
   initial: 'inactive',
   states: {
     inactive: {
@@ -24,9 +24,32 @@ const alarmMachine = {
       }
     }
   }
-}
+})
+// It was sample object we can use state machine instead
+// const alarmMachine = {
+//   initial: 'inactive',
+//   states: {
+//     inactive: {
+//       on: {
+//         TOGGLE: "pending"
+//       }
+//     },
+//     pending: {
+//       on: {
+//         SUCCESS: "active",
+//         TOGGLE: 'inactive'
+//       }
+//     },
+//     active:   {
+//       on: {
+//         TOGGLE: "inactive"
+//       }
+//     }
+//   }
+// }
 const alarmReducer = (state,event) => {
-  const nextState = alarmMachine.states[state].on[event.type] || state
+  // const nextState = alarmMachine.states[state].on[event.type] || state;
+  const nextState = alarmMachine.transition(state,event)
   return nextState;
   // switch(state){
   //   case 'inactive':
@@ -52,14 +75,16 @@ const alarmReducer = (state,event) => {
   // }
 }
 export const ScratchApp = () => {
-  const [status,dispatch] = useReducer(alarmReducer,initialState)
-
+  // const [state,dispatch] = useReducer(alarmReducer,alarmMachine.initialState)
+  const [state,send] = useMachine(alarmMachine)
+  const status = state.value;
+  
   useEffect(() => {
     const timer = setTimeout(() => {
-      dispatch({ type: 'SUCCESS'})
+      send({ type: 'SUCCESS'})
     },2000)
     return () => clearTimeout(timer)
-  },[status])
+  },[status,send])
 
   return (
     <div className="scratch">
@@ -77,7 +102,7 @@ export const ScratchApp = () => {
           opacity: status === "pending" ? 0.5 : 1
         }}
         onClick={ () => {
-          dispatch({ type: 'TOGGLE'})
+          send({ type: 'TOGGLE'})
         }}></div>
       </div>
     </div>
