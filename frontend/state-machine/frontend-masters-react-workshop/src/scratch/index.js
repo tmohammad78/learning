@@ -4,29 +4,52 @@ import { useMachine } from '@xstate/react';
 
 const initialState = "pending";
 
-const alarmReducer = (state,event) => {
-  switch(state){
-    case 'inactive':
-      if(event.type === "TOGGLE") {
-        return "pending"
+const alarmMachine = {
+  initial: 'inactive',
+  states: {
+    inactive: {
+      on: {
+        TOGGLE: "pending"
       }
-      return state;
-    case 'pending':
-      if(event.type === "SUCCESS") {
-        return "active"
+    },
+    pending: {
+      on: {
+        SUCCESS: "active",
+        TOGGLE: 'inactive'
       }
-      if(event.type === "TOGGLE") {
-        return "inactive"
+    },
+    active:   {
+      on: {
+        TOGGLE: "inactive"
       }
-      return state;
-    case "active":
-      if(event.type === "TOGGLE") {
-        return "inactive"
-      }
-      return state;
-    default:
-      return state;
+    }
   }
+}
+const alarmReducer = (state,event) => {
+  const nextState = alarmMachine.states[state].on[event.type] || state
+  return nextState;
+  // switch(state){
+  //   case 'inactive':
+  //     if(event.type === "TOGGLE") {
+  //       return "pending"
+  //     }
+  //     return state;
+  //   case 'pending':
+  //     if(event.type === "SUCCESS") {
+  //       return "active"
+  //     }
+  //     if(event.type === "TOGGLE") {
+  //       return "inactive"
+  //     }
+  //     return state;
+  //   case "active":
+  //     if(event.type === "TOGGLE") {
+  //       return "inactive"
+  //     }
+  //     return state;
+  //   default:
+  //     return state;
+  // }
 }
 export const ScratchApp = () => {
   const [status,dispatch] = useReducer(alarmReducer,initialState)

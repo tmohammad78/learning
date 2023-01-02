@@ -7,8 +7,34 @@ import { ProgressCircle } from '../ProgressCircle';
 // Import the timer machine and its initial state:
 // import { ... } from './timerMachine';
 
+const initialState = 'idle'
+const timerMachine = {
+  initial: 'idle',
+  states:{
+    idle: {
+      on: {
+        TOGGLE: 'running'
+      }
+    },
+    running: {
+      on: {
+          TOGGLE: 'paused'
+      }
+    },
+    paused: {
+      on: {
+        TOGGLE: "running",
+        RESET: "idle"
+      }
+    }
+  }
+}
+const timerReducer = (state,event) => {
+  const nextState = timerMachine.states[state].on[event.type] || state;
+  return nextState;
+}
 export const Timer = () => {
-  const state = ''; // delete me - useReducer instead!
+  const [state,dispatch]  = useReducer(timerReducer,initialState)
 
   const { duration, elapsed, interval } = {
     duration: 60,
@@ -36,39 +62,45 @@ export const Timer = () => {
         <div
           className="elapsed"
           onClick={() => {
-            // ...
+            dispatch({ type: "TOGGLE "})
           }}
         >
           {Math.ceil(duration - elapsed)}
         </div>
         <div className="controls">
-          <button
+         {state === 'running' && (
+            <button
             onClick={() => {
-              // ...
-            }}
-          >
-            Reset
-          </button>
+              dispatch({ type: "RESET "})
+              }}
+            >
+              Reset
+            </button>
+         )}
         </div>
       </div>
       <div className="actions">
-        <button
+       {state === 'running' && (
+          <button
           onClick={() => {
-            // ...
+            dispatch({ type: "TOGGLE"})
           }}
           title="Pause timer"
         >
           <FontAwesomeIcon icon={faPause} />
         </button>
+        )}
 
-        <button
+        {(state === 'idle' || state === 'paused') && (
+          <button
           onClick={() => {
-            // ...
+            dispatch({ type: 'TOGGLE'})
           }}
           title="Start timer"
         >
           <FontAwesomeIcon icon={faPlay} />
         </button>
+        )}
       </div>
     </div>
   );
