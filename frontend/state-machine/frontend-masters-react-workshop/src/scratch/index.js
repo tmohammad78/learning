@@ -4,9 +4,13 @@ import { useMachine } from '@xstate/react';
 
 const initialState = "pending";
 
-const incrementCount = () => assign({
+const incrementCount = assign({
   count: (context) => context.count + 1
 })
+
+const tooMuch = (context,state) => {
+  return context.count < 5 
+}
 
 const alarmMachine = createMachine({
   initial: 'inactive',
@@ -17,10 +21,16 @@ const alarmMachine = createMachine({
     inactive: {
       entry: 'telemetry',
       on: {
-        TOGGLE:{
-          target:  "pending",
-          actions: 'incrementCount'
-        },
+        TOGGLE:[
+            {
+              target:  "pending",
+              actions: incrementCount,
+              cond: 'tooMuch'
+            },
+            {
+              target: 'rejected'
+            }
+          ],
       }
     },
     pending: {
@@ -33,11 +43,12 @@ const alarmMachine = createMachine({
       on: {
         TOGGLE: "inactive"
       }
-    }
+    },
+    rejected: {}
   }
 }, {
-  actions:{
-    incrementCount:incrementCount
+  guards:{
+    tooMuch
   }
 })
 // It was sample object we can use state machine instead
@@ -91,16 +102,24 @@ const alarmReducer = (state,event) => {
 }
 export const ScratchApp = () => {
   // const [state,dispatch] = useReducer(alarmReducer,alarmMachine.initialState)
-  const [state,send] = useMachine(alarmMachine, { 
+  const [state,send,service] = useMachine(alarmMachine, { 
     actions: { /// We can pass an action here , or pass to createMachine function as another argument
-      incrementCount: assign({
-        count: (context,event) => context.count + 100
-      }),
+      // incrementCount: assign({
+      //   count: (context,event) => context.count + 100
+      // }),
       telemetry: (context,event) => {
         console.log(context,event,'this is telemetry')
       }
     }
   })
+
+  useEffect(() => {
+    const sub = service.subscribe((state) => {
+      console.log(state)
+    })
+    return () => sub.unsubscribe()
+  },[state])
+
   const status = state.value;
   const { count } = state.context;
   
@@ -119,7 +138,7 @@ export const ScratchApp = () => {
             hour: '2-digit',
             minute: '2-digit',
           })}
-          ({count})
+          ({count}) ({state.toStrings().join(' ')})
         </div>
         <div 
         className="alarmToggle" 

@@ -13,3 +13,10 @@ For design our machine to get better perspective about our machine and states , 
 
 ### Extended State
 We can update by actions
+
+### Parameterizing 
+This is a trick for calling a function when we are in a state or extract our action from the state machine .
+we can use a third item as name service that retuned from useMachine , it helps to see events in the useEffect 
+we should subscribe that , It's like a observerable .
+we can add our function as second argument to the createMachine or we can pass it as second input to the useMachine with actions property.
+
