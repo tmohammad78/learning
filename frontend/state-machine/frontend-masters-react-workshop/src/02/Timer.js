@@ -9,12 +9,7 @@ import { ProgressCircle } from '../ProgressCircle';
 export const Timer = () => {
   const [state, send] = useMachine(timerMachine);
 
-  // Use state.context instead
-  const { duration, elapsed, interval } = {
-    duration: 60,
-    elapsed: 0,
-    interval: 0.1,
-  };
+  const { duration, elapsed, interval } = state.context
 
   return (
     <div
@@ -42,9 +37,7 @@ export const Timer = () => {
           )}
 
           <button
-            onClick={() => {
-              // ...
-            }}
+            onClick={() => send('ADD_MINUTE')}
           >
             + 1:00
           </button>

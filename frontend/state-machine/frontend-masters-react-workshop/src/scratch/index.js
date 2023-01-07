@@ -4,6 +4,10 @@ import { useMachine } from '@xstate/react';
 
 const initialState = "pending";
 
+const incrementCount = () => assign({
+  count: (context) => context.count + 1
+})
+
 const alarmMachine = createMachine({
   initial: 'inactive',
   context:{
@@ -11,12 +15,11 @@ const alarmMachine = createMachine({
   },
   states: {
     inactive: {
+      entry: 'telemetry',
       on: {
         TOGGLE:{
           target:  "pending",
-          actions: assign({
-            count: (context,event) => context.count + 1
-          })
+          actions: 'incrementCount'
         },
       }
     },
@@ -31,6 +34,10 @@ const alarmMachine = createMachine({
         TOGGLE: "inactive"
       }
     }
+  }
+}, {
+  actions:{
+    incrementCount:incrementCount
   }
 })
 // It was sample object we can use state machine instead
@@ -84,7 +91,16 @@ const alarmReducer = (state,event) => {
 }
 export const ScratchApp = () => {
   // const [state,dispatch] = useReducer(alarmReducer,alarmMachine.initialState)
-  const [state,send] = useMachine(alarmMachine)
+  const [state,send] = useMachine(alarmMachine, { 
+    actions: { /// We can pass an action here , or pass to createMachine function as another argument
+      incrementCount: assign({
+        count: (context,event) => context.count + 100
+      }),
+      telemetry: (context,event) => {
+        console.log(context,event,'this is telemetry')
+      }
+    }
+  })
   const status = state.value;
   const { count } = state.context;
   
