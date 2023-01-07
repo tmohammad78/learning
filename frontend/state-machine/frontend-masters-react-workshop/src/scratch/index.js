@@ -1,15 +1,23 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import { createMachine } from 'xstate';
+import { assign, createMachine } from 'xstate';
 import { useMachine } from '@xstate/react';
 
 const initialState = "pending";
 
 const alarmMachine = createMachine({
   initial: 'inactive',
+  context:{
+    count: 0
+  },
   states: {
     inactive: {
       on: {
-        TOGGLE: "pending"
+        TOGGLE:{
+          target:  "pending",
+          actions: assign({
+            count: (context,event) => context.count + 1
+          })
+        },
       }
     },
     pending: {
@@ -78,6 +86,7 @@ export const ScratchApp = () => {
   // const [state,dispatch] = useReducer(alarmReducer,alarmMachine.initialState)
   const [state,send] = useMachine(alarmMachine)
   const status = state.value;
+  const { count } = state.context;
   
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -94,6 +103,7 @@ export const ScratchApp = () => {
             hour: '2-digit',
             minute: '2-digit',
           })}
+          ({count})
         </div>
         <div 
         className="alarmToggle" 
