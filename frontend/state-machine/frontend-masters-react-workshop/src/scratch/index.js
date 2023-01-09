@@ -40,6 +40,15 @@ const alarmMachine = createMachine({
       }
     },
     active:   {
+      initial: 'normal',
+      states:{
+        normal: {
+          after: {
+            1000: 'looksGood'
+          }
+        },
+        looksGood: {}
+      },
       on: {
         TOGGLE: "inactive"
       }

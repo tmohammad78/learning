@@ -20,3 +20,17 @@ we can use a third item as name service that retuned from useMachine , it helps 
 we should subscribe that , It's like a observerable .
 we can add our function as second argument to the createMachine or we can pass it as second input to the useMachine with actions property.
 
+### Eventless Transition 
+An eventless transition is a transition that is always taken when the machine is in the state where it is defined, and when its cond guard evaluates to true. They are checked:
+
+immediately when the state node is entered
+every time the machine receives an actionable event (regardless of whether the event triggers internal or external transition)
+
+### Share states
+We can share our states between different machine with service that returned from useService
+
+### Hierarchical States
+Sometimes inner an specific state we have two states , for example for running state for a timer 
+we can have normal or overtime state that used , overtime means we are counting timer but we haven't valid time 
+and we want to store the time that has spent
+
