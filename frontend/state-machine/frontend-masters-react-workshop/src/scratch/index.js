@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import { assign, createMachine } from 'xstate';
+import { assign, createMachine , send } from 'xstate';
 import { useMachine } from '@xstate/react';
 
 const initialState = "pending";
@@ -10,6 +10,14 @@ const incrementCount = assign({
 
 const tooMuch = (context,state) => {
   return context.count < 5 
+}
+
+const saveAlarm = async () => {
+  return new Promise(res => {
+    setTimeout(() => {
+      res()
+    },2000)
+  })
 }
 
 const alarmMachine = createMachine({
@@ -34,9 +42,41 @@ const alarmMachine = createMachine({
       }
     },
     pending: {
+      invoke:{
+        id: 'timeout',
+        src: (context,event) => (sendBack,receive) => {
+          receive((event) => {
+            console.log(event)
+          })
+          
+          const timer  = setTimeout(() => {
+            sendBack({
+              type: 'SUCCESS'
+            })
+          },2000)
+
+          return () => {
+            console.log("Cleaning")
+            clearTimeout(timer)
+          }
+        },
+        // onDone:  [
+        //   {
+        //     target: 'active',
+        //     cond: (context,event) => {
+        //       return event.data > 99
+        //     }
+        //   },
+        //   { target: 'rejected' }
+        // ],
+        onError: 'rejected'
+      },
       on: {
         SUCCESS: "active",
-        TOGGLE: 'inactive'
+        TOGGLE: {
+          target: 'inactive',
+          // actions: send({ type: 'GOODBYE'},  { to: 'timeout'})
+        }
       }
     },
     active:   {
