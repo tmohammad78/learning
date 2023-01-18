@@ -25,4 +25,7 @@ When we use setTimeout, it will go to the callback Queue and after all things in
 
 ### Promises
 We have Micro task queue that has high priority than callback queue and all promise base objects stores in microtask queue
-and other things like timers store in callback queue
+and other things like timers are stored in callback queue. <br />
+Promise deferred functions in a microtask queue and callback functions in a task queue when the Web Browser Feature finishes .
+we have another hidden property like onFulfilment , as name onRejection that handles the error handling .
+ 
