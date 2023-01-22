@@ -33,8 +33,9 @@ we have another hidden property like onFulfilment , as name onRejection that han
 
 In the example 13, there is a problem that if we are duplicating the function in each execution and it's not a good idea so we extract that function and we store that in a separate object and this is a prototype chain. <br />
 All Objects in the javascript have their own **--proto--** property. There is another big Object. the prototype that exists all useful objects in it. 
-All proto of objects in javascript link to the Object. Prototype in the memory, but with **Object.create** we can control the proto property and customize that. 
+All proto of objects in javascript link to the Object. Prototype in the memory, but with **Object.create** we can control the proto property and customize that. <br />
 
+Classes are like prototype under the hood and they are minimal and less code.
 ### This 
 In the example 15 , We created a new function in the increment function, The problem that javascript has however we are calling this function in the increment function , but **this** keyword doesn't mention to the increment and that links to the global memory and if that couldn't find a **score** , it will create new one in the global memory. <br />
 The solution is we can create new variable as name that and pass this in the increment function to **that** and instead of calling this.score++ call that.score++ . Or we can use **call** function to bind this. <br />
