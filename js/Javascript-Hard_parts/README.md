@@ -29,3 +29,20 @@ and other things like timers are stored in callback queue. <br />
 Promise deferred functions in a microtask queue and callback functions in a task queue when the Web Browser Feature finishes .
 we have another hidden property like onFulfilment , as name onRejection that handles the error handling .
  
+### Classes 
+
+In the example 13, there is a problem that if we are duplicating the function in each execution and it's not a good idea so we extract that function and we store that in a separate object and this is a prototype chain. <br />
+All Objects in the javascript have their own **--proto--** property. There is another big Object. the prototype that exists all useful objects in it. 
+All proto of objects in javascript link to the Object. Prototype in the memory, but with **Object.create** we can control the proto property and customize that. 
+
+### This 
+In the example 15 , We created a new function in the increment function, The problem that javascript has however we are calling this function in the increment function , but **this** keyword doesn't mention to the increment and that links to the global memory and if that couldn't find a **score** , it will create new one in the global memory. <br />
+The solution is we can create new variable as name that and pass this in the increment function to **that** and instead of calling this.score++ call that.score++ . Or we can use **call** function to bind this. <br />
+
+**The Arrow Function**
+The Arrow functions are lexically scoped. when we execute an arrow function, **this** will determine where the function was saved. Other functions linked to the global, but arrow functions linked to places that they declared. <br />
+
+### New keyword
+All things that have been said about prototype chaining and this, all happens when we use **new** keyword underhood, so instead of using that approach we can use new keyword.
+
+* Functions are like objects . All function in their object format have prototype properties and also we can add another property by this notation : **myFunc.store = 8**

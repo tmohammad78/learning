@@ -7,7 +7,10 @@ function userCreator(name,score){
 }
 
 const userFunctionStore = {
-    increment: function() { this.score++; },
+    increment: function() { 
+        const add = () => { this.score++; } //// This line 
+        add()
+     },
     login: function(){ console.log("Logged in") }
 }
 
