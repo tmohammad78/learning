@@ -14,3 +14,8 @@ Or in package list project we can decouple the state of child and write useState
 When we use children we should know that children is not the child of child component and children is in the tree of parents component. for instance for wordman project , we are passing expensive component as child to the Game comopnent , but we should notice that expensive component is still in the tree of parent component not Game component.
 
 ### Reducer, useCallback , useMemo
+If you want to persist a value use useMemo , if you want to persist a function and reference use useCallBack .
+dispatch is always same , but useCallback can re-create function base specific changes.
+
+### React 17 vs React 18
+In React 17, It says, that everything is urgent, do it all, But React 18 says some things are very urgent do them first, and some things can wait, do the urgent stuff first. (Concurrency model)
