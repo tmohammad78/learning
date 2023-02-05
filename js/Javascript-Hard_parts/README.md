@@ -47,3 +47,14 @@ The Arrow functions are lexically scoped. when we execute an arrow function, **t
 All things that have been said about prototype chaining and this, all happens when we use **new** keyword underhood, so instead of using that approach we can use new keyword.
 
 * Functions are like objects . All function in their object format have prototype properties and also we can add another property by this notation : **myFunc.store = 8**
+
+
+### Pure functions 
+Pure functions are kind of functions that always with same input has same output and they have side effects . 
+
+### Immutable
+All primitive type of js are immutable , once a primitive value is created, it cannot be changed, although the variable that holds it may be reassigned another value. Object and Arrays are mutable by default — their properties and elements can be changed without reassigning a new value.
+
+### Decorator 
+A decorator (also known as a decorator function) can additionally refer to the design pattern that wraps a function with another function to extend its functionality.
+we can have function decorator and class decorator . for function we have high order function . 
