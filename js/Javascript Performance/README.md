@@ -14,3 +14,4 @@ it shows the details of v8 and turbofan in optimizing steps. (benchmark.js) <br 
 When we use typescript or flow or reasonML we help to turbo fan because changing the type cause performance issues and waste more time.
 
 https://ponyfoo.com/articles/an-introduction-to-speculative-optimization-in-v8
+https://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html
