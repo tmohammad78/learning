@@ -11,7 +11,10 @@ The Optimization `perf_hooks` is an underhood of nodejs and we can use it withou
 
 On the other FileSystemHandle, There is a command like --trace-opt command with node that tells us how much this code takes and 
 it shows the details of v8 and turbofan in optimizing steps. (benchmark.js) <br />
-When we use typescript or flow or reasonML we help to turbo fan because changing the type cause performance issues and waste more time.
+When we use typescript or flow or reasonML we help to Turbofan because changing the type causes performance issues and wastes more time.
 
 https://ponyfoo.com/articles/an-introduction-to-speculative-optimization-in-v8
 https://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html
+
+### Rendering
+![RenderingPerformance](https://github.com/tmohammad78/learning/blob/main/js/Javascript%20Performance/RenderingPerformance.md)
