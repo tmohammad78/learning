@@ -43,17 +43,17 @@ So for reduce the reflow we can do this :
 
 it's known as **asynchronous reflow** because it was not forced to run synchronously outside of the scheduled rendering phase
 
-![paint](https://github.com/tmohammad78/learning/tree/main/js/Javascript%20Performance/images/paint.png)
+![paint](https://github.com/tmohammad78/learning/blob/main/js/Javascript%20Performance/images/paint.png)
 
 So far It’s a normal way but If the coordinates or styles for the requested element have not been computed yet, the browser *must immediately* compute them via performing reflow. This immediate invocation of the Style and Layout engines to resolve undetermined coordinates is *forced*, therefore referred to as a **forced reflow** (or **synchronous reflow**)
 
-![reflow1](https://github.com/tmohammad78/learning/tree/main/js/Javascript%20Performance/images/reflow1.png)
+![reflow1](https://github.com/tmohammad78/learning/blob/main/js/Javascript%20Performance/images/reflow1.png)
 for instance, if we have this issue it seems like this : 
 
-![reflow2](https://github.com/tmohammad78/learning/tree/main/js/Javascript%20Performance/images/reflow2.png)
+![reflow2](https://github.com/tmohammad78/learning/blob/main/js/Javascript%20Performance/images/reflow2.png)
 If this happens async, you can read information about the position from the cache ([code](https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/style/style_cached_data.h;l=19;drc=38321ee39cd73ac2d9d4400c56b90613dee5fe29)), and it’s not so costly. On the other hand, If you invalidate the DOM tree by adding element to the DOM, you’re adding new subset to the DOM tree but that section has no information about the position.
 
-![reflow3](https://github.com/tmohammad78/learning/tree/main/js/Javascript%20Performance/images/reflow3.png)
+![reflow3](https://github.com/tmohammad78/learning/blob/main/js/Javascript%20Performance/images/reflow3.png)
 Later, when asynchronous reflow occurs, each DOM node is assigned styles and positions before being displayed on the screen.
 
 ## **Synchronous Reflow**
@@ -71,7 +71,7 @@ We invalidate the DOM tree so far it’s okay but next line we are getting the i
 
  
 
-![reflow](https://github.com/tmohammad78/learning/tree/main/js/Javascript%20Performance/images/reflow.png)
+![reflow](https://github.com/tmohammad78/learning/blob/main/js/Javascript%20Performance/images/reflow.png)
 
 ## Layout Trashing
 
