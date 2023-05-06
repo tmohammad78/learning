@@ -26,3 +26,8 @@ You should not pass a function or a object to the dependency because they will c
 A timer managed with setInterval() and clearInterval().
 An event subscription using window.addEventListener() and window.removeEventListener().
 A third-party animation library with an API like animation.start() and animation.reset().
+
+
+### Notes
+Effects are an escape hatch from the React paradigm. They let you “step outside” of React and synchronize your components with some external system.  If there is no external system involved (for example, if you want to update a component’s state when some props or state change), you shouldn’t need an Effect.
+for instance see example code of ```sample1.js```
