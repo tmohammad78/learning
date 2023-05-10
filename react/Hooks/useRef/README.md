@@ -6,6 +6,11 @@ like using browser api or play and pause a video player without react.
 * You can access to this by myRef.current
 * When you want a component to “remember” some information, but you don’t want that information to trigger new renders, you can use a ref.
 * Don’t read or write ref.current during rendering. If some information is needed during rendering, use state instead
+* React does not let a component access the DOM nodes of other components. Not even for its own children! 
+* Avoid changing DOM nodes managed by React. Modifying, adding children to, or removing children from elements that are managed by React can lead to inconsistent visual results or crashes like above.
+  
+  
+```sample 2 ```
 
 ```
 const myRef = useRef(0) /// init value
@@ -22,6 +27,7 @@ Typically, you will use a ref when your component needs to “step outside” Re
 * You can point a ref to any value. However, the most common use case for a ref is to access a DOM element
 
 ### State vs Refs
+
 * State triggers re-render when you change it but refs doesn't
 * States are immutable but Refs are mutable and you can change them outside of rendering. but for states you must use the state setting function to modify state variables to queue a re-render.
 * You shouldn't read or write the current value during rendering but for state you can read them at any time each render has its own snapshot of state which does not change.
