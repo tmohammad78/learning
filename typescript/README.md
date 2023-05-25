@@ -61,3 +61,14 @@ See ```section 3```
 
 ## Rule 4: Know the Differences Between type and interface
 There are some differences between interface and type , for instance with type you can use union, on in interface you have declaration merging , it means you can have two interface with same name and those interface are merged toghether. see ```section 4```
+
+## Rule 5: Use Type Operations and Generics to Avoid Repeating Yourself
+In some cases I duplicate some types and interfaces but it's possible to merge them and use generics to obey DRY
+see ```Section 5```
+
+
+## Rule 6: Use Index Signatures for Dynamic Data
+In some cases we have some data like a csv that those property have a general type so we make that dynamic but we shouldn't use that in each object because it doesn't tell us the which property has which type so it's better to be explicit see ```Section 6```
+
+## Rule 7: Use Mapped Types to Keep Values in Sync
+It's useful trick , when we change a base type sometimes we don't know about that change and it causes some issues in other places because we aren't update, so due to that we can do a trick to force to update the type. ```Section 7```
