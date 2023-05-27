@@ -72,3 +72,21 @@ In some cases we have some data like a csv that those property have a general ty
 
 ## Rule 7: Use Mapped Types to Keep Values in Sync
 It's useful trick , when we change a base type sometimes we don't know about that change and it causes some issues in other places because we aren't update, so due to that we can do a trick to force to update the type. ```Section 7```
+
+## Rule 8: Understand Type Widening
+when TypeScript is checking your code, a variable has a set of possible values, namely, its type. When you initialize a variable with a constant but don’t provide a type, the type checker needs to decide on one. In other words, it needs to decide on a set of possible values from the single value that you specified. In TypeScript, this process is known as widening. 
+To control widening you can use
+* const 
+* as const assertion
+```Section 8```
+
+## Rule 9:  Understand Type Narrowing
+ This is the process by which TypeScript goes from a broad type to a narrower one.
+* Returning or throwing an error in different type at block 
+* instanceof
+* Check null 
+* use isArray to cehck type
+* Dont trust (!) because it's falsy when number is 0 or empty string
+* use tagged union for narrowing
+* use custom function as name typeGuard for checking types
+* 

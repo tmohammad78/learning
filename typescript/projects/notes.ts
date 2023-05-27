@@ -244,3 +244,127 @@ function shouldUpdate(
     }
   return false;
 }
+
+// <<<<<<<<<<<<<<<<<<<<<<<<Section 8>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+/**
+* Rule 8: Understand Type Widening
+*/
+
+interface Vector3 { x: number; y: number; z: number; }
+function getComponent(vector: Vector3, axis: 'x' | 'y' | 'z') {
+  return vector[axis];
+}
+
+let x = 'x';
+let vec = {x: 10, y: 20, z: 30};
+getComponent(vec, x); ///The issue is that x’s type is inferred as string, whereas the getComponent function
+// expected a more specific type for its second argument. This is widening at work, and
+// here it has led to an error.
+
+
+const x = 'x';
+let vec = {x: 10, y: 20, z: 30};
+getComponent(vec, x); 
+
+//// for object you can use as const like this : 
+
+const v3 = {
+x: 1,
+y: 2,
+} as const;
+ // Type is { readonly x: 1; readonly y: 2; }
+ //If you’re getting incorrect errors that you think are due to widening, consider adding
+// some explicit type annotations or const assertions.
+
+
+// <<<<<<<<<<<<<<<<<<<<<<<<Section 9>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+/**
+* Rule 9: Understand Type Narrowing
+*/
+
+/// Sample narrowing is : 
+/// 1. Checking is null or not
+const el = document.getElementById('foo'); // Type is HTMLElement | null
+if (el) {//// You are exclude type of null , if it's null it doesn't execute
+  el // Type is HTMLElement
+  el.innerHTML = 'Party Time'.blink();
+} else { 
+  el // Type is null
+  alert('No element #foo');
+}
+//// throw error 
+const el = document.getElementById('foo'); // Type is HTMLElement | null
+if (!el) throw new Error('Unable to find #foo');
+el; // Now type is HTMLElement
+el.innerHTML = 'Party Time'.blink();
+
+
+//// use instanceof
+function contains(text: string, search: string|RegExp) {
+if (search instanceof RegExp) {
+    search // Type is RegExp
+    return !!search.exec(text);
+  }
+  search // Type is string
+  return text.includes(search);
+}
+
+/// isArray
+function contains(text: string, terms: string|string[]) {
+  const termList = Array.isArray(terms) ? terms : [terms];
+  termList // Type is string[]
+  // ...
+}
+
+/// Dont use ! 
+function foo(x?: number|string|null) {
+  if (!x) {
+  x;
+ // Type is string | number | null | undefined
+  }
+}
+
+/// use tagged Union 
+interface UploadEvent { type: 'upload'; filename: string; contents: string }
+interface DownloadEvent { type: 'download'; filename: string; }
+type AppEvent = UploadEvent | DownloadEvent;
+function handleEvent(e: AppEvent) {
+  switch (e.type) {
+  case 'download':
+  e // Type is DownloadEvent
+  break;
+  case 'upload':
+  e; // Type is UploadEvent
+  break;
+  }
+}
+
+//// Use typeGuard : 
+function isInputElement(el: HTMLElement): el is HTMLInputElement {
+return 'value' in el;
+}
+function getElementContent(el: HTMLElement) {
+  if (isInputElement(el)) {
+    el; // Type is HTMLInputElement
+    return el.value;
+  }
+  el; // Type is HTMLElement
+  return el.textContent;
+}
+
+//// type Guard
+
+function isDefined<T>(x: T | undefined): x is T {
+  return x !== undefined
+}
+const members = ['Janet', 'Michael'].map(
+who => jackson5.find(n => n === who)
+).filter(isDefined); // Type is string[]
+
+// <<<<<<<<<<<<<<<<<<<<<<<<Section 10>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+/**
+* Rule 9: Understand Type Narrowing
+*/
