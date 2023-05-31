@@ -363,8 +363,247 @@ const members = ['Janet', 'Michael'].map(
 who => jackson5.find(n => n === who)
 ).filter(isDefined); // Type is string[]
 
+
 // <<<<<<<<<<<<<<<<<<<<<<<<Section 10>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 /**
-* Rule 9: Understand Type Narrowing
+* Rule 10:  Understand How Context Is Used in Type Inference
 */
+
+function setLanguage(language: string) { /* ... */ }
+setLanguage('JavaScript');
+ // OK
+let language = 'JavaScript';
+setLanguage(language); // OK , because you're entering string
+
+///// Now you set type more percise 
+type Language = 'JavaScript' | 'TypeScript' | 'Python';
+function setLanguage(language: Language) { /* ... */ }
+setLanguage('JavaScript');
+ // OK
+let language = 'JavaScript';
+setLanguage(language); //// error , string is not equal to  
+// Languge type
+// typescript infer type of language in assignment so its string
+//// There are two way to solve this problem 
+/// 1. use const 
+const language = 'JavaScript'; /// The type is Javascript not string
+setLanguage(language); 
+
+/// 2. Declare type of that
+const language: Language = 'JavaScript'; /// The type is Javascript not string
+setLanguage(language); 
+
+/// Or with array or object we have same issue
+
+function panTo(where: [number, number]) { /* ... */ }
+panTo([10, 20]);
+ // OK
+const loc = [10, 20];
+panTo(loc);
+// Argument of type 'number[]' is not assignable to
+// parameter of type '[number, number]'
+
+/// so here we can do two things: 1) use as const 2) declare type
+const loc = [10, 20] as const /// 1
+const loc: [number,number] = [10, 20]  /// 2
+
+
+
+// <<<<<<<<<<<<<<<<<<<<<<<<Section 11>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+/**
+* Rule 11: Prefer Unions of Interfaces to Interfaces of Unions
+*/
+
+// For instance we have this interface 
+interface Layer {
+  layout: FillLayout | LineLayout | PointLayout;
+  paint: FillPaint | LinePaint | PointPaint;
+}
+
+/// This isn't percise and it cause some probability in the code 
+// that will confuse us , so it's better to exclude them in this way : 
+
+interface FillLayer {
+  layout: FillLayout;
+  paint: FillPaint;
+}
+interface LineLayer {
+  layout: LineLayout;
+  paint: LinePaint;
+}
+interface PointLayer {
+  layout: PointLayout;
+  paint: PointPaint;
+}
+type Layer = FillLayer | LineLayer | PointLayer;
+
+/// In this way we have separate types and if its point and not a line , we 
+// have paint and layout of that type not any other probability
+
+/// Another approach is to use tags in code to have better 
+/// check it called tag union trick in ts .
+// we add a tag in each interface 
+interface FillLayer {
+  type: 'fill';
+  layout: FillLayout;
+  paint: FillPaint;
+}
+interface LineLayer {
+  type: 'line';
+  layout: LineLayout;
+  paint: LinePaint;
+}
+interface PointLayer {
+  type: 'paint';
+  layout: PointLayout;
+  paint: PointPaint;
+}
+type Layer = FillLayer | LineLayer | PointLayer;
+
+/// And in the code we can narrow that code better like this : 
+
+function drawLayer(layer: Layer) {
+  if (layer.type === 'fill') {
+    const {paint} = layer; // Type is FillPaint
+    const {layout} = layer; // Type is FillLayout
+  } else if (layer.type === 'line') {
+    const {paint} = layer; // Type is LinePaint
+    const {layout} = layer; // Type is LineLayout
+  } else {
+    const {paint} = layer; // Type is PointPaint
+    const {layout} = layer; // Type is PointLayout
+  }
+}
+
+
+//// Another example if this section is about relation between some 
+/// properties , for instance we have an interface that have 
+// birthday and place property that they have optional but if one of them 
+// exist the next one is exist too , if we have place so we have birthday defenitly
+/// in these cases we can extract those in the one object and with one property in main interface
+/// like this : 
+
+/// Before
+interface Person {
+  name: string;
+  // These will either both be present or not be present
+  placeOfBirth?: string;
+  dateOfBirth?: Date;
+}
+
+/// After
+interface Person {
+  name: string;
+  birth?: {
+  place: string;
+  date: Date;
+  }
+}
+
+/// In this case we can check that birth exist with just one if block and its more easier
+// And also we get error if one of them doesn't exist 
+
+const alanT: Person = {
+  name: 'Alan Turing',
+  birth: {
+  // ~~~~ Property 'date' is missing in type
+  //
+  // '{ place: string; }' but required in type
+  //
+  // '{ place: string; date: Date; }'
+  place: 'London'
+  }
+}
+
+// or we can check in this way : 
+function eulogize(p: Person) {
+  console.log(p.name);
+  const {birth} = p;
+  if (birth) {
+  console.log(`was born on ${birth.date} in ${birth.place}.`);
+  }
+}
+
+/// And if it comes from an api we can do this : 
+interface Name {
+  name: string;
+}
+interface PersonWithBirth extends Name {
+  placeOfBirth: string;
+  dateOfBirth: Date;
+}
+type Person = Name | PersonWithBirth;
+
+function eulogize(p: Person) {
+  if ('placeOfBirth' in p) {
+  p // Type is PersonWithBirth
+  const {dateOfBirth} = p // OK, type is Date
+  }
+}
+
+
+
+// <<<<<<<<<<<<<<<<<<<<<<<<Section 12>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+/**
+* Rule 12: Prefer More Precise Alternatives to String Types
+*/
+interface Album {
+  artist: string;
+  title: string;
+  releaseDate: string; // YYYY-MM-DD
+  recordingType: string; // E.g., "live" or "studio"
+}
+
+const kindOfBlue: Album = {
+  artist: 'Miles Davis',
+  title: 'Kind of Blue',
+  releaseDate: 'August 17th, 1959',// Oops!
+  recordingType: 'Studio', // Oops!
+};
+// here we don't get any error and also when we call function 
+// we don't get error there 
+function recordRelease(title: string, date: string) { /* ... */ }
+recordRelease(kindOfBlue.releaseDate, kindOfBlue.title); // OK, should be error
+
+/**
+ * So for solving this problem we should do this : 
+ */
+
+type RecordingType = 'studio' | 'live';
+interface Album {
+  artist: string;
+  title: string;
+  releaseDate: Date;
+  recordingType: RecordingType;
+}
+
+// Another sample in this section is in argument of strings
+
+// In this example we get error becase of key:string
+function pluck<T>(record: T[], key: string): any[] {
+  return record.map(r => r[key]);
+// ~~~~~~ Element implicitly has an 'any' type
+//
+//  because type '{}' has no index signature
+}
+
+/// Because TypeScript is now complaining that the string type for key is too broad. 
+// So we have just four condition not string for key: “artist,” “title,” “releaseDate,” and “recordingType”
+// we can change to this : 
+// use keyof , keyof Album = "artist", "title", "releaseDate", "recordingType"
+function pluck<T>(record: T[], key: keyof T) {
+  return record.map(r => r[key]);
+}
+
+// And in the end we can do this :
+/// Because we should be percise about the return type of function 
+// without that , we get the return type union and it wasn't percise 
+// so we can do it better  
+function pluck<T, K extends keyof T>(record: T[], key: K): T[K][] {
+return record.map(r => r[key]);
+}
+// The problem is here 
+const releaseDates = pluck(albums, 'releaseDate'); // Type is (string | Date)[]

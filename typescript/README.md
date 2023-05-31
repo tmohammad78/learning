@@ -89,4 +89,22 @@ To control widening you can use
 * Dont trust (!) because it's falsy when number is 0 or empty string
 * use tagged union for narrowing
 * use custom function as name typeGuard for checking types
-* 
+
+## Rule 10:  Understand How Context Is Used in Type Inference
+In some cases, when we initi a variable , that variablt get a type by default and when we use that as argument we get error about type of that. so we can use ```as const``` or  ```declare a type in front of that``` to solve issue
+see ```section 10```
+
+## Rule 11: Prefer Unions of Interfaces to Interfaces of Unions
+• Interfaces with multiple properties that are union types are often a mistake
+because they obscure the relationships between these properties.
+• Unions of interfaces are more precise and can be understood by TypeScript.
+• Consider adding a “tag” to your structure to facilitate TypeScript’s control flow
+analysis. Because they are so well supported, tagged unions are ubiquitous in
+TypeScript code.
+see ```section 11```
+
+
+## Rule 12: Prefer More Precise Alternatives to String Types
+It happened many times that we use string type in a place that makes so wide and we should be careful and try to narrow that type without using string because these are string but type checker can not detect them: 
+'mohammad' , '1999/13/04' , 'on 13 April in 1999' and etc
+see ```section 12```
