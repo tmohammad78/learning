@@ -108,3 +108,16 @@ see ```section 11```
 It happened many times that we use string type in a place that makes so wide and we should be careful and try to narrow that type without using string because these are string but type checker can not detect them: 
 'mohammad' , '1999/13/04' , 'on 13 April in 1999' and etc
 see ```section 12```
+
+## Rule 13: Put TypeScript and @types in devDependencies
+There are three kinds of dependencies.
+
+1. dependencies: These are packages that are required to run your JavaScript.  When you publish your code on npm and another user installs it, it will also install these dependencies. like react and etc
+
+2. devDependencies:  These packages are used to develop and test your code but are not required at runtime. All types should be in devDependencies like Jest, eslint and @types/react and etc.
+   
+3. peerDependency: Peer dependencies are a special type of dependency that would only ever come up if you were publishing your own package.
+
+Having a peer dependency means that your package needs a dependency that is 
+the same exact dependency as the person installing your package. 
+
