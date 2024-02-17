@@ -105,3 +105,78 @@ log(Array.isArray([2,3,34,4])) /// true
 
 /// 18. join
 log([1,2,3,4].join(".")) /// 1.2.3.4
+
+/// 19. map
+const result2 = [1,2,3,4].map(item => item * 2)
+log(result2) /// [2,4,6,8]
+
+/// 20. pop and push
+log([1,2,3,4].pop()) /// [1,2,3]
+log([1,2,3,4].push(1,3,4)) // [1,2,3,4,1,3,4]
+
+/// 21. reduce
+
+const total = [1,2,3,4].reduce((acc,curr) =>  acc + curr, 0) /// acc is initial value 
+const total2 = [1,2,3,4].reduce((acc,curr) => acc + curr)
+// if we dont specify initial value, the acc is arr[0] and curr is arr[1]
+
+/// 22. reverse, toReversed
+/**
+ * Reverse method, mutes the array and return result
+ * toReversed method return the new result and doesn't mute the main array
+ */
+[1,2,3].reverse() /// [3,2,1]
+
+/// 23. shift
+[1,2,3,4,5].shift() /// it return 1 , it change the main array
+/// you cann use slice, but slice return array not that value
+
+/// 24. slice
+// it doesn't change the main array
+/// start, to end (not include the end index)
+let arr3 = [1,2,3,4,5]
+log(arr3.slice(2,4)) /// [3,4]
+
+/// 25. some
+// it check items, at least one element
+let arr4 = [1,2,3,4,5]
+arr4.some(item => item > 3) // it finds at least one element that is bigger than 3
+
+/// 26. sort 
+/**
+ * Under the hood it uses merge sort,
+ * the deafult sort is ascending
+ * it mutes the mainn array, if you want to return a new array use toSorted()
+ * the return of callback should be a number that the sign of it, indicates the relative order 
+ * of the two elements, negative if a less than b, positive if a is greater than b, and zero, if they 
+ * are equal
+ */
+let arr5 = [5,6,2,4,51,6,7,0]
+
+// 27.toSorted
+log(arr5.sorted())
+
+/// 28. splice, toSpliced
+/**
+ * It uses to replace or remove existing elements or adding new elements in place.
+ * splice(start,deleteCount, item1, item2 ,,,)
+ * it return deleted items and changes the main array 
+ * toSpliced is like splice but doesn't mutes the main array
+ */
+const arr6 = [1,2,3,4,5,6,7,8,9];
+const result6 = arr.splice(3,2)
+console.log(result6,arr6) //// [4,5] , [1,2,3,6,7,8,9]
+
+/// 29. unShift
+/**
+ * it adds the begining of array
+ */
+let arr7 = [1,2,3,4]
+log(arr7.unshift(4,5,6)) /// [4,5,6,1,2,3,4]
+
+/// 30. with 
+/**
+ * it replace the index with neew value as second property
+ */
+let arr8 = [1,2,4,5,6]
+log(arr8.with(4,5))
