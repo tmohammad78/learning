@@ -30,6 +30,17 @@ log([4,5].every((num,index,arr) => {
 
 /// 7. filter
 log([1,2,3,4].filter(item => item > 2)) // [3,4]
+/**
+ * function filter(arr, filterFunc) {
+  const result = [];
+  for (const [i, x] of arr.entries()) {
+    if (filterFunc(x, i, arr)) {
+      result.push(x);
+    }
+  }
+  return result;
+}
+ */
 
 /// 8.find
 log([1,2,3,4].find(item => item > 2)) /// 3, return first 
@@ -38,6 +49,18 @@ log([1,2,3,4].find(item => item > 2)) /// 3, return first
 
 const firstIndex = [1,2,3,4].findIndex((item) => item > 2)
 log('first index: ',firstIndex)  /// 3
+
+/**
+ * 
+ function findIndex(arr, callback) {
+  for (const [i, x] of arr.entries()) {
+    if (callback(x, i, arr)) {
+      return i;
+    }
+  }
+  return -1;
+}
+ */
 
 
 /// 10. flat
@@ -50,6 +73,20 @@ const flatMapTest = ["it's Sunny in", "", "California"];
 
 const result = flatMapTest.flatMap(item => item.split(" "))
 log(result) // [ "it's", 'Sunny', 'in', '', 'California' ]
+
+function flatMap(arr, mapFunc) {
+  const result = [];
+  for (const [index, elem] of arr.entries()) {
+    const x = mapFunc(elem, index, arr);
+    // We allow mapFunc() to return non-Arrays
+    if (Array.isArray(x)) {
+      result.push(...x);
+    } else {
+      result.push(x);
+    }
+  }
+  return result;
+}
 
 
 /// 12. forEach 
@@ -109,6 +146,16 @@ log([1,2,3,4].join(".")) /// 1.2.3.4
 /// 19. map
 const result2 = [1,2,3,4].map(item => item * 2)
 log(result2) /// [2,4,6,8]
+/**
+ * 
+ * function map(arr, mapFunc) {
+  const result = [];
+  for (const [i, x] of arr.entries()) {
+    result.push(mapFunc(x, i, arr));
+  }
+  return result;
+}
+ */
 
 /// 20. pop and push
 log([1,2,3,4].pop()) /// [1,2,3]
