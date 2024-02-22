@@ -161,3 +161,22 @@ console.log(Object.is(obj17,obj17)) /// true
 console.log(Object.is(obj17,{...obj17})) // false
 console.log(Object.is(null,null)) // true
 console.log(Object.is(2,'2')) // false
+
+//// Spread
+
+const obj18 = {
+  name: "Mohammad",
+  age: 25,
+  info: {
+    job: 'developer',
+    interest: ['ski','book','swimming','code']
+  }
+}
+
+const newObj18 = {
+  ...obj18
+}
+newObj18.info.job = 'driver'
+newObj18.name = "Gholam"
+
+console.log(obj18) //// the job property of main object is changed, because it is not deep clone
