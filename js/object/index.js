@@ -180,3 +180,16 @@ newObj18.info.job = 'driver'
 newObj18.name = "Gholam"
 
 console.log(obj18) //// the job property of main object is changed, because it is not deep clone
+
+const defaultItem = {
+  name: "",
+  phone: "",
+  id: 12 // it can be from another fn
+}
+
+const myData = {
+  ...defaultItem,
+  name: "ALi"
+}
+
+/////
