@@ -105,6 +105,22 @@ function deepFreeze(object) {
 /// 7. fromEntries
 // The Object.fromEntries() static method transforms a list of key-value pairs into an object.
 
+
+function fromEntries(iterable) {
+  const result = {};
+  for (const [key, value] of iterable) {
+    let coercedKey;
+    if (typeof key === 'string' || typeof key === 'symbol') {
+      coercedKey = key;
+    } else {
+      coercedKey = String(key);
+    }
+    result[coercedKey] = value;
+  }
+  return result;
+}
+
+
 const entries = new Map([
     ['foo', 'bar'],
     ['baz', 42],
@@ -192,4 +208,59 @@ const myData = {
   name: "ALi"
 }
 
-/////
+///// Optional Chaining
+
+const obj19 = {
+  name: "Mohammad",
+  age: 25,
+  info: {
+    job: 'developer',
+    interest: ['ski','book','swimming','code'],
+  }
+}
+
+const result = obj19?.a?.s?.d
+
+console.log(result)
+
+/////////////////// pick 
+
+function pick(object, ...keys) {
+  const filteredEntries = Object.entries(object)
+    .filter(([key, _value]) => {
+      return keys.includes(key)
+    });
+  return Object.fromEntries(filteredEntries);
+}
+
+pick(obj19,'age','name')   ///// {age: 25, name: 'Mohammad'}
+
+
+
+////////////////// invert
+
+function invert(object) {
+  const data = Object.entries(object).map(([key,value]) => [value,key])
+  return Object.fromEntries(data)
+}
+
+
+///////////////// pitfalls
+const dict = {};
+assert.equal('toString' in dict, true); // true
+
+
+/////////// defineProperty
+
+const obj20 = {
+  name: "mohammad"
+}
+
+Object.defineProperty(obj20, 'name', {
+  enumerable: false,
+  writable: false
+})
+
+obj20.name = "Ali" //// it doesn't change because we set writable to false
+
+/////////////
