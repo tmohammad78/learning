@@ -258,9 +258,67 @@ const obj20 = {
 
 Object.defineProperty(obj20, 'name', {
   enumerable: false,
-  writable: false
+  writable: false,
+  configurable: false
 })
 
-obj20.name = "Ali" //// it doesn't change because we set writable to false
+obj20.name = "Ali" //// it doesn't change because we set writable to false, writable 
+console.log(Object.keys(obj20)) //// it's empty, because enumerable is true
 
-/////////////
+delete obj20.name //// gives error due to configurable
+
+
+Object.defineProperty(obj20, 'name', { /// it gives error due to configureable
+  enumerable: true,
+})
+
+/////////////   object.freeze
+
+Object.freeze(obj20)
+
+obj20.name = "this is test" /// it doesn't change, because of freeze
+
+////// Object prototype
+const obj21 = {
+  protoProp: 'a',
+}
+
+const obj22 = {
+  __proto__: obj21,
+  name: "M"
+}
+
+console.log('protoProp' in obj22) /// its true, we are setting a new property in obj22
+
+
+//////// Prototype
+
+//// before
+const jane = {
+  firstName: 'Jane',
+  describe() {
+    return 'Person named '+this.firstName;
+  },
+};
+
+const tarzan = {
+  firstName: 'Tarzan',
+  describe() {
+    return 'Person named '+this.firstName;
+  },
+}
+
+/// Better way is to use prototype
+const PersonProto = {
+  describe() {
+    return 'Person named ' + this.firstName;
+  },
+};
+const jane = {
+  __proto__: PersonProto,
+  firstName: 'Jane',
+};
+const tarzan = {
+  __proto__: PersonProto,
+  firstName: 'Tarzan',
+};
