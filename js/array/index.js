@@ -223,7 +223,17 @@ log(arr7.unshift(4,5,6)) /// [4,5,6,1,2,3,4]
 
 /// 30. with 
 /**
- * it replace the index with neew value as second property
+ * it replace the index with new value as second property
  */
 let arr8 = [1,2,4,5,6]
 log(arr8.with(4,5))
+
+
+///// Typed Array 
+/// We can manipulate in 2 way, typed array or dataview
+const buf = new Int16Array(2)
+buf[1] = 72
+console.log(buf)
+
+const anotherBuf = new Uint8Array(4)
+console.log(anotherBuf) /// Uint8Array {0: 0, 1: 0, 2: 0, 3: 0}
