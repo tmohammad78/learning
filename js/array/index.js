@@ -68,6 +68,19 @@ log([1,2,[3,4,5,[6,7,8]]].flat()) // [ 1, 2, 3, 4, 5, [ 6, 7, 8 ] ]
 log([1,2,[3,4,5,[6,7,8]]].flat(2)) // [ 1, 2, 3, 4, 5, 6, 7, 8 ]
 log([1,2,[3,4,5,[6,7,8]]].flat(Infinity)) // [ 1, 2, 3, 4, 5, 6, 7, 8 ]
 
+/**
+ * function flat(arr, depth = 1) {
+    return arr.reduce((flatArr, item) => {
+        if (Array.isArray(item) && depth > 0) {
+            flatArr.push(...flat(item, depth - 1));
+        } else {
+            flatArr.push(item);
+        }
+        return flatArr;
+    }, []);
+}
+
+ */
 /// 11.flatmap
 const flatMapTest = ["it's Sunny in", "", "California"];
 
