@@ -13,4 +13,5 @@
 * https://www.huy.rocks/everyday#typescript
 * https://medium.com/hypersphere-codes/advanced-typescript-mapped-types-and-more-b5d023bd6539
 * https://github.com/microsoft/TypeScript-Compiler-Notes
+* https://www.totaltypescript.com/
 * Effective Typescript books

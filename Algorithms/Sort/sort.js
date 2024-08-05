@@ -118,6 +118,22 @@ class Sort {
     }
 
     selectionSort(arr){
+        /**
+         * 
+            for(let j = 0 ; j < arr.length ; j++) {
+                let min = j
+
+                for(let i = j + 1 ; i < arr.length ; i++) {
+                if(arr[i] < arr[min]) {
+                    min = i
+                }
+                }
+                let temp = arr[j];
+                arr[j] = arr[min];
+                arr[min] = temp;
+            }
+            return arr
+         */
         for(let i =0; i< arr.length ; i++ ) {
             let min = arr[i] //// select min number
             let indexOfMin = i
