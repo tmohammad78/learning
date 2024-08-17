@@ -1,14 +1,22 @@
-Effects React
+# Effects React
 * useEffect
 * useLayoutEffect
 
+### Practical, Samples
+Examples: https://github.com/tmohammad78/react-journey/tree/effects
+
 # useEffect
 This is a hook function that helps developers to manager side effects easier in the function components.
-- This function is an alternative for componentDidMount, componentDidUpdate, and componentWillUnmount that were used in class components.
+* Pay attention is not lifecycle of hooks, It's a mechanism for synchronizing side effects with the state of your app.
+* The goal of React team was to fundamentally improve the mental model for application side-effects.
 * It runs asynchronously. it means this function doest not block the thread, it can only be called after the component has been mounted,
 
 ## Pitfalls
 UseEffect hook is asynchronous this has a significant drawback in that it can only be called after the component has been mounted. This implies that side effects that depend on the layout of the component cannot be carried out using useEffect. (So to solve this problem, useLayoutEffect exist)
+
+## Resources
+https://www.epicreact.dev/myths-about-useeffect
+https://overreacted.io/a-complete-guide-to-useeffect/
 
 # useLayoutEffect
 The useLayoutEffect hook runs synchronously which means it runs immediately after React has performed all the necessary DOM mutations but just before the browser paints the screen.
@@ -38,7 +46,7 @@ https://gist.github.com/gaearon/e7d97cdf38a2907924ea12e4ebdf3c85
 ### Issues on Github
 https://github.com/preactjs/preact/issues/1893
 
-# Resources
+## Resources
 https://refine.dev/blog/uselayouteffect-vs-useeffect/#testing-manipulating-the-dom
 
 https://blog.logrocket.com/react-useeffect-vs-uselayouteffect-hooks-examples/
