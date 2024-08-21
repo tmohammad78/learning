@@ -13,7 +13,8 @@ The function is pure , with no argument and return any type. But why we should p
 Because React will only call the function when it needs the initial value and it will called one time , but if you pass a function call your function still calling in every redering. This trick called lazy initialization. 
 review : https://kentcdodds.com/blog/use-state-lazy-initialization-and-function-updates
 ```
-
+### Batch
+If you have multi setState in a function, all setState will be done in a one cycle of rendering, this is named batch  
 ## Return 
 UseState return an array that first item is current state and second one is a function to update the state of component
 
@@ -33,4 +34,4 @@ because of : https://react.dev/learn/state-as-a-snapshot
 If you want to avoid this rule and change that immediatly you can use flushSync
 ```
 
-* for updating an array or an object you should replace that for changing reference and not mute that and change just a propoerty you want.
+To update a object or array state, you should mute a fresh object or array, you can not change property directly. you can not mute the init data just you can replace it with new one. so for arrays use functions without mutation.

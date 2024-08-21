@@ -20,7 +20,6 @@ const clickHandler = () => {
     setTimeout(() => {
         console.log(count); // Also 0!
       }, 5000);
-
       /// Because it will update for next render not in the runnig code
       // so if we log the state we see zero
 }
