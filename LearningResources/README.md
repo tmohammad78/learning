@@ -1,10 +1,13 @@
 
 # Learning Resources 
 
-## React
-* https://incepter.github.io/how-react-works/docs/intro/
-* https://pomb.us/build-your-own-react/
-* https://overreacted.io/
+## Javascript 
+
+* https://developer.mozilla.org/
+* https://exploringjs.com/index.html
+* https://humanwhocodes.com/blog/
+* https://2ality.com/archive.html
+* https://ecmascript.news/index.html
 
 ## Typescript 
 
@@ -15,3 +18,9 @@
 * https://github.com/microsoft/TypeScript-Compiler-Notes
 * https://www.totaltypescript.com/
 * Effective Typescript books
+
+## React
+
+* https://incepter.github.io/how-react-works/docs/intro/
+* https://pomb.us/build-your-own-react/
+* https://overreacted.io/
