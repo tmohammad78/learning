@@ -16,7 +16,22 @@ export class PubSub {
     private persistedMessages: Record<Topic, Message> = {};
     private subscriberOnMsg: Record<ID, OnMessageFn> = {};
 
-
+    constructor({ persistedTopics }: { persistedTopics?: Topic[] } = {}) {
+        if (persistedTopics && !Array.isArray(persistedTopics)) {
+          throw new Error("Persisted topics must be an array of topics.");
+        }
+        if (persistedTopics) {
+          this.persistedMessages = persistedTopics.reduce(
+            (acc: Record<Topic, Message>, cur: Topic) => {
+              acc[cur] = {};
+              return acc;
+            },
+            {}
+          );
+        }
+        this.subscribe.bind(this);
+        this.publish.bind(this);
+    }
     /**
      * Subscribe to messages being published in the given topic.
      * @param topic Name of the channel/topic where messages are published.
