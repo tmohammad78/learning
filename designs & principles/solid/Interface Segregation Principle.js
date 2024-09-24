@@ -63,6 +63,40 @@ const ProductPage = () => {
 };
 
 
+
+////// Example 2 
+/// Bad, because props drilling
+
+function Dashboard({ user }) {
+    return (
+        <section>
+            <Header />
+            ...
+        </section>
+    )
+}
+
+function Header({ user }) {
+    return (
+        <header>
+            <Navigation user={user} />
+        </header>
+    )
+}
+
+function Navigation({ user }) {
+    return (
+        <nav>
+            <UserGreeting name={user.name} />
+            ...
+        </nav>
+    )
+}
+
+function UserGreeting({ name }) {
+    return <h1>Hey, {name}!</h1>;
+}
+
 //// Good Pattern
 
 const TechProduct = ({ title, price, version, descriptions, setting }) => {
@@ -159,3 +193,9 @@ const ProductPage = () => {
     );
 };
 
+
+//// Good Example 2 
+function UserGreeting() {
+    const user = useUser();
+    return <h1>Hey, {user.name}!</h1>;
+}

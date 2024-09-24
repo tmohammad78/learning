@@ -112,3 +112,8 @@ const LoginPage: React.FC<{ authService: AuthService }> = ({ authService }) => {
 }
 
 export default LoginPage
+
+
+
+
+////////// Example 2
