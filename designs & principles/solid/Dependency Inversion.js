@@ -117,3 +117,34 @@ export default LoginPage
 
 
 ////////// Example 2
+
+// High-level module
+class ShoppingCartService {
+  constructor(private paymentProcessor: PaymentProcessor) {}
+
+  checkout(cart: ShoppingCart) {
+    return this.paymentProcessor.processPayment(cart);
+  }
+}
+
+// Low-level module
+class PaymentProcessor {
+  processPayment(cart: ShoppingCart) {
+    // Process the payment for the items in the shopping cart
+  }
+}
+
+// Abstraction
+interface PaymentProcessor {
+  processPayment(cart: ShoppingCart): boolean;
+}
+
+// Implementation of the abstraction
+class StripePaymentProcessor implements PaymentProcessor {
+  processPayment(cart: ShoppingCart): boolean {
+    // Use the Stripe API to process the payment for the items in the shopping cart
+  }
+}
+
+// Now the ShoppingCartService depends on the abstraction, not the implementation
+const shoppingCartService = new ShoppingCartService(new StripePaymentProcessor());
