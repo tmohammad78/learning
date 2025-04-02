@@ -2,51 +2,6 @@
 
 log = console.log
 
-function curry(fn) {
-    return function curried(...args) {
-        if(args.length >= fn.length) {
-            return fn(...args)
-        }
-        return (...args2) => {
-            return fn(...args,...args2)
-        }
-    }
-}
-
-const join = (a,b,c) => {
-    return `${a}_${b}_${c}`
-}
-
-const myCurry = curry(join)
-
-log(myCurry(1,2,3))  /// 1_2_3
-log(myCurry(1)(2,3)) /// 1_2_3
-log(myCurry(1,2)(3)) /// 1_2_3
-
-
-
-////// 2.debounce
-
-function debounce(fn, wait) {
-    let timer
-    return (...args) => {
-        clearTimeout(timer)
-        timer = setTimeout(() => {
-            fn(...args)
-        }, wait)
-    }
-}
-
-const debouncedFn = debounce(() => console.log('Function executed'), 1000);
-
-debouncedFn(); // Call 1
-debouncedFn(); // Call 2 (resets timer)
-debouncedFn(); // Call 3 (resets timer)
-
-setTimeout(() => {
-  debouncedFn(); // Call after delay
-}, 1500);
-
 
 /////// pipe 
 // https://bigfrontend.dev/problem/what-is-composition-create-a-pipe
@@ -163,6 +118,7 @@ class NodeStore {
 
 function excludeItems(items, excludes) {
     let data = new Map();
+
     items.forEach((item, index) => {
       Object.keys(item).forEach(ii => {
         let existing = data.get(ii) || {};
@@ -201,3 +157,101 @@ function excludeItems(items, excludes) {
   /// {color: "blue", type: "book", age: 1...}
   
   
+//// change order in place 
+function sort(items, newOrder) {
+  let newArr = [...items]
+  newArr.forEach((item, index) => {
+    items[newOrder[index]] = item;
+  });
+  return newArr;
+}
+
+
+///// Implement clearAllTimeout fn
+
+let timerIds = {}
+
+const originalSetTimeout = window.setTimeout;
+const originalClearTimeout = window.clearTimeout;
+
+
+window.setTimeout = function(fn,waitTime) {
+  const timerId = originalSetTimeout(fn,waitTime)
+  timerIds[timerId] = true
+  return timerId
+}
+
+window.clearTimeout = function(timeoutId) {
+  originalClearTimeout(timeoutId);
+  delete timerIds[timeoutId];
+};
+
+function clearAllTimeout() {
+  Object.keys(timerIds).forEach(timerId => {
+    clearTimeout(timerId)
+    delete timerIds[timerId]
+  })
+}
+
+
+
+////// binary search 
+function binarySearch(arr, target){
+  
+  let left = 0 
+  let right =  arr.length - 1
+
+  while(left <= right) {
+    let mid = Math.floor((left + right) / 2)
+    if(target === arr[mid]) {
+      return mid
+    }
+    if(arr[mid] < target) {
+      left = mid + 1
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return -1 
+}
+
+
+//// Spy on 
+/**
+ * This function is responsible to track the main function that is called.
+ */
+
+function spyOn(obj, methodName) {
+  // your code here
+  const spy = {
+    calls: []
+  }
+
+  const originFn = obj[methodName]
+
+  if(!originFn) {
+    throw new Error("Not a Function")
+  }
+  obj[methodName] = function(...args) {
+    spy.calls.push(args)
+    return originFn.apply(this,args)
+  }
+
+  return spy
+}
+
+
+//// bubble sort 
+
+function bubbleSort(arr) {
+  for(let i = 0 ; i< arr.length ; i++) {
+    for(let j = i + 1 ; j < arr.length ; j++) {
+      if(arr[j] < arr[i]) {
+        swap  = arr[j]
+        arr[j] = arr[i]
+        arr[i] = swap
+      }
+    }
+  }
+}
