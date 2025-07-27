@@ -200,3 +200,49 @@ Promise.ownAny([p6, p7, p8]).then(res => {
 }).catch(err => {
   console.error(err);
 });
+
+
+
+//// Splice
+Array.prototype.ownSplice = function (start, deleteCount, ...itemsToAdd) {
+  const removed = [];
+
+  // Normalize start index
+  if (start < 0) {
+      start = this.length + start;
+      if (start < 0) start = 0;
+  } else if (start > this.length) {
+      start = this.length;
+  }
+
+  // Clamp deleteCount
+  deleteCount = Math.min(deleteCount, this.length - start);
+
+  // Step 1: Extract removed items
+  for (let i = 0; i < deleteCount; i++) {
+      removed.push(this[start + i]);
+  }
+
+  // Step 2: Shift elements after deleted part
+  const tail = this.slice(start + deleteCount); // Remaining elements after removed section
+  console.log(tail,'ddd')
+  this.length = start; // Truncate the array at start
+
+  // Step 3: Add new items
+  for (let i = 0; i < itemsToAdd.length; i++) {
+      this.push(itemsToAdd[i]);
+  }
+
+  // Step 4: Append the tail back
+  for (let i = 0; i < tail.length; i++) {
+      this.push(tail[i]);
+  }
+
+  return removed;
+}
+
+log = console.log
+const a = [1,2,3,4]
+const b = [...a]
+log(a.splice(2,1),a)
+log(b.ownSplice(2,1),b)
